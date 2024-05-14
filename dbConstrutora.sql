@@ -1,14 +1,3 @@
--- apagando bd se existir 
-drop database dbLojaDF02;
-
--- criando banco de dados
-create database dbLojaDF02;
-
--- acessando bd
-use dbLojaDF02;
-
--- visualizando banco de dados
-show databases;
 
 -- criando as tabelas no bd
 create table tbFuncionarios(
@@ -80,32 +69,3 @@ foreign key(codCli) references tbClientes(codCli)
 
 -- visualizando as tabelas criadas
 show tables;
-
--- visualizando as estruturas das tabelas
-
-desc tbFuncionarios; 
-desc tbFornecedores;
-desc tbClientes;
-desc tbUsuarios;
-desc tbProdutos;
-desc tbVendas;
-
-
--- inserindo registros nas tabelas
-insert into tbFuncionarios(nome,email,cpf,telCel,logradouro,numero,cep,bairro,cidade,estado)
-	values('beatriz sousa borges','beatriz.sborges@gmail','123.456.789-01','95955-9955','Rua dr. Antonio Bento','355','04750-000','Santo Amaro','São Paulo', 'SP');	
-
-insert into tbFuncionarios(nome,email,cpf,telCel,logradouro,numero,cep,bairro,cidade,estado)
-	values('Ana Frios Delgado Matarazzo','ana.fdmatarazzo@gmail','445.456.789-01','95955-9675','Rua da Alegria','153','04750-123','Santo Amaro','São Paulo', 'SP');		
-
-insert into tbUsuarios(nome,senha,codFunc)
-	values('beatriz','deximbranco',1);
-
-insert into tbUsuarios(nome,senha,codFunc)
-	values('Ana Frios Matarazzo','dexi234branco',2);	
-
--- visualizando os registros nos campos das tabelas
-
-select * from tbFuncionarios;
-select * from tbUsuarios;
-
