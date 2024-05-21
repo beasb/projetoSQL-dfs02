@@ -35,7 +35,6 @@ primary key(idLivro),
 foreign key(idGenero) references tbGenero(idGenero)
 );
 
-
 create table tbVenda(
 idVenda int not null auto_increment,
 data date,
@@ -139,6 +138,7 @@ insert into tbEscreve(idLivro,idAutor)
 	values(3,6);
 
 -- pesquisar os campos das tabelas
+
 select * from tbGenero;
 select * from tbAutor;
 select * from tbCliente;
@@ -146,3 +146,31 @@ select * from tbLivro;
 select * from tbVenda;
 select * from tbItensDaVenda;
 select * from tbEscreve;
+
+-- alterando registros das tabelas
+
+update tbCliente set nome = 'Mike' where idCliente = 2;
+update tbCliente set nome = 'Bea', telefone = '9852-7542' where idCliente = 1;
+
+select * from tbCliente;
+
+update tbLivro set titulo = 'Saving Francesca', preco = 59.02, estoque = 50, idGenero = 1 where idLivro = 1;
+update tbLivro set titulo = 'On the Road', preco = 72.50, estoque = 75, idGenero = 7 where idLivro = 2;
+
+
+select * from tbLivro;
+
+-- apagando os registros da tabela
+
+--delete from tbVenda where idVenda = 1;
+
+
+--delete from tbItensDaVenda where idVenda = 2;
+ 
+--delete from tbVenda where idCliente = 1;
+ 
+--delete from tbCliente where idCliente = 2;
+
+select * from tbItensDaVenda;
+select * from tbVenda;
+select * from tbCliente;
