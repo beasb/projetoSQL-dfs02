@@ -56,3 +56,14 @@ select * from PRODUTOS where tipo = 'INFORMATICA';
 
 select tipo from PRODUTOS order by tipo;
 
+select * from PRODUTOS where valor >= 600;
+
+select valor as 'valor' from PRODUTOS where valor >= 600.00;
+
+-- busca por código 
+
+select * from PRODUTOS where CODIGO = 1;
+
+-- busca por nome
+
+
