@@ -48,22 +48,80 @@ desc PRODUTOS;
 select * from Produtos;
 
 
--- pra ver campos sem repetição
+-- PRA VER CAMPOS SEM REPETIÇÃO
 
-select distinct tipo from PRODUTOS;
+-- select distinct tipo from PRODUTOS;
 
-select * from PRODUTOS where tipo = 'INFORMATICA';
+-- select * from PRODUTOS where tipo = 'INFORMATICA';
 
-select tipo from PRODUTOS order by tipo;
+-- select tipo from PRODUTOS order by tipo;
 
-select * from PRODUTOS where valor >= 600;
+-- select * from PRODUTOS where valor >= 600;
 
-select valor as 'valor' from PRODUTOS where valor >= 600.00;
+-- select valor as 'valor' from PRODUTOS where valor >= 600.00;
 
--- busca por código 
+-- BUSCA POR CÓDIGO
 
-select * from PRODUTOS where CODIGO = 1;
+-- select * from PRODUTOS where CODIGO = 1;
 
--- busca por nome
+-- BUSCA POR NOME
+
+-- select * from PRODUTOS where TIPO like '%a%';
+-- '%a%' que tem A
+-- 'a%' que começa com A
+-- '%a' que termina com A
+
+-- select * from produtos where tipo like 'i%'
+-- select * from produtos where tipo like '%s'
+
+-- BUSCA AND, OR, IN e BETWEEN
+
+-- select * from produtos where tipo like '%o%' and valor <= 600;
+-- select * from produtos where tipo like '%o%' or valor <= 600;
+-- select * from produtos where tipo in('INFORMATICA','TELEFONE');
+-- select * from produtos where not tipo in('INFORMATICA','TELEFONE');
+-- select * from produtos where valor >= 100 and valor <= 300;
+-- select * from produtos where valor between 100 and 300;
+-- select * from produtos where valor not between 100 and 300;
 
 
+
+-- 1. Aumente em 12% o valor dos produtos cujos nomes iniciem com a letra 'F'
+
+-- update PRODUTOS set VALOR = VALOR * 1.12 where NOME like 'f%';
+
+-- select * from Produtos where nome like 'f%';
+
+
+
+-- 2. Aumentar em 50 unidades todos os produtos cujo valor seja maior que 400 e inferior a 600 
+
+-- update PRODUTOS set QUANTIDADE = QUANTIDADE + 50 where VALOR between 400 and 600;
+
+-- select * from Produtos where VALOR between 400 and 600;
+
+
+
+-- 3. Aplicar um desconto de 50% (*0.5) em todos os produtos que as unidades de estoque sejam maiores que 300 
+
+-- update PRODUTOS set VALOR = VALOR * 0.5 where QUANTIDADE > 300;
+
+-- select * from Produtos where QUANTIDADE > 300;
+
+
+
+-- 4. Exiba o produto de CODIGO = 4 
+
+--select * from PRODUTOS where CODIGO = 4;
+
+
+
+-- 5. Exibir todos os produtos que não tenham a letra 'Y' 
+
+--select * from produtos where nome not like '%y%';
+
+
+
+-- 6. Exibir todos os produtos que se iniciem com nome 'MO' e tenham como tipo as letras 'MA'
+
+ -- select * from produtos where nome like 'mo%' and tipo like '%ma%';
