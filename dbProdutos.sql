@@ -125,3 +125,25 @@ select * from Produtos;
 -- 6. Exibir todos os produtos que se iniciem com nome 'MO' e tenham como tipo as letras 'MA'
 
  -- select * from produtos where nome like 'mo%' and tipo like '%ma%';
+
+
+
+
+
+ -- LABORATORIO PAGINA 53 
+
+ -- 1.  Escreva uma consulta que exiba os dados da tabela PRODUTOS na forma crescente pelo campo NOME. 
+
+ select * from Produtos order by nome desc;
+
+ -- 2. Escreva uma consulta que exiba o NOME dos produtos ordenado de forma decrescente e o VALOR de forma crescente. 
+
+ select nome,valor from Produtos order by nome desc, valor asc;
+
+ -- 3. Escreva uma consulta que exiba os três produtos mais caros
+
+select * from Produtos order by valor desc limit 3;
+
+ -- 4. Escreva uma consulta que exiba o VALOR do produto mais barato.
+
+ select * from Produtos order by valor limit 1;
