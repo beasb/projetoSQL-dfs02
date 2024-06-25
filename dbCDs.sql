@@ -372,3 +372,27 @@ grav.nome as 'Gravadora',
 cat.nome as 'Categoria' from tbTitulos as tit
 inner join tbGravadoras as grav on tit.codGrav = grav.codGrav
 inner join tbCategorias as cat on tit.codCat = cat.codCat;
+
+select cli.nome as 'Nome do Cliente',
+tit.nome as 'Titulo do CD' from tbTitulosPedidos as titped 
+inner join tbTitulos as tit on titped.codTit = tit.codTit
+inner join tbPedidos as ped on titped.numPed = ped.numPed 
+inner join tbClientes as cli on ped.codCli = cli.codCli;
+
+select func.nome as 'Funcionario',
+ped.numPed as 'Numero do Pedido',
+ped.data as 'Data do Pedido' from tbPedidos as ped 
+inner join tbFuncionarios as func on ped.codFunc = func.codFunc;
+
+select func.nome as 'Funcionarios',
+dep.nome as 'Dependentes' from tbDependentes as dep 
+inner join tbFuncionarios as func on dep.codFunc = func.codFunc;
+
+select cli.nome as "Nome do Cliente",
+conj.nome as "Nome do Conjuge" from tbConjuge as conj  
+inner join tbClientes as cli on conj.codCli = cli.codCli;
+
+select cli.nome as "Nome do Cliente",
+conj.nome as "Nome do Conjuge" from tbConjuge as conj  
+inner join tbClientes as cli on conj.codCli = cli.codCli
+where conj.nome like '%%'
