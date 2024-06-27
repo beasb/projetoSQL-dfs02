@@ -359,40 +359,71 @@ select * from tbTitulosPedidos;
 select * from tbTitulosArtista;
 
 
+-- LAB 1
+
+-- 01
 select tit.nome as 'CD',
 grav.nome as 'Gravadora' from tbTitulos as tit
 inner join tbGravadoras as grav on tit.codGrav = grav.codGrav;
 
+-- 02
 select tit.nome as 'CD',
 cat.nome as 'Categoria' from tbTitulos as tit 
 inner join tbCategorias as cat on tit.codCat = cat.codCat;
 
+-- 03
 select tit.nome as 'CD',
 grav.nome as 'Gravadora',
 cat.nome as 'Categoria' from tbTitulos as tit
 inner join tbGravadoras as grav on tit.codGrav = grav.codGrav
 inner join tbCategorias as cat on tit.codCat = cat.codCat;
 
+-- 04
 select cli.nome as 'Nome do Cliente',
 tit.nome as 'Titulo do CD' from tbTitulosPedidos as titped 
 inner join tbTitulos as tit on titped.codTit = tit.codTit
 inner join tbPedidos as ped on titped.numPed = ped.numPed 
 inner join tbClientes as cli on ped.codCli = cli.codCli;
 
+
+-- 05
 select func.nome as 'Funcionario',
 ped.numPed as 'Numero do Pedido',
 ped.data as 'Data do Pedido' from tbPedidos as ped 
-inner join tbFuncionarios as func on ped.codFunc = func.codFunc;
+inner join tbFuncionarios as func on ped.codFunc = func.codFunc
+inner join tbClientes as cli on ped.codCli = cli.codCli;
 
+-- 06
 select func.nome as 'Funcionarios',
 dep.nome as 'Dependentes' from tbDependentes as dep 
 inner join tbFuncionarios as func on dep.codFunc = func.codFunc;
 
+-- 07
 select cli.nome as "Nome do Cliente",
 conj.nome as "Nome do Conjuge" from tbConjuge as conj  
 inner join tbClientes as cli on conj.codCli = cli.codCli;
 
+
+-- 08
 select cli.nome as "Nome do Cliente",
 conj.nome as "Nome do Conjuge" from tbConjuge as conj  
-inner join tbClientes as cli on conj.codCli = cli.codCli
-where conj.nome like '%%'
+inner join tbClientes as cli on conj.codCli = cli.codCli;
+
+-- 09
+select cli.nome as "Nome do Cliente",
+conj.nome as "Nome do Conjuge",
+ped.numPed as "Numero do Pedido",
+ped.valor as "Valor do Pedido",
+func.codFunc as "Cod Funcionario" from tbPedidos as ped 
+right join tbClientes as cli on ped.numPed = cli.codCli
+right join tbConjuge as conj on ped.numPed = conj.codConj
+inner join tbFuncionarios as func on ped.codFunc = func.codFunc;
+
+-- LAB 2
+
+-- 01
+select count(quantidadeCD) as "Quantidade de Pedidos" from tbTitulosPedidos
+
+-- 02
+select count(*) as "Quantidade de CDs" from tbTitulos;
+
